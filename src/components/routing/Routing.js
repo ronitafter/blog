@@ -7,7 +7,6 @@ import Header from "../layout/Header";
 import PostPage from "../pages/PostPage";
 import About from "../pages/About";
 import NotFound from "../pages/NotFound";
-
 function Routing() {
   return (
     <Routes>
@@ -15,7 +14,7 @@ function Routing() {
       <Route path="header" element={<Header />} />
       <Route path="footer" element={<Footer />} />
       <Route path="about" element={<About />} />
-      <Route path="*" element={<NotFound />} />
+      <Route path="notfound" element={<NotFound />} />
       <Route path="post" element={<NewPost />} />
       <Route path="post/:id" element={<PostPage />} />
     </Routes>

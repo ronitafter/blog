@@ -1,14 +1,16 @@
-import React from "react";
-import Routing from "../routing/Routing";
+import Feed from "../pages/Feed";
 
-const Home = () => {
+const Home = ({ posts }) => {
   return (
-    <main className="home Home">
-      <h1>Home!!!</h1>
-      <p>this is the home page</p>
-      <Routing />
+    <main className="Home home">
+      {posts?.length ? (
+        <Feed posts={posts} />
+      ) : (
+        <p style={{ marginTop: "2rem" }}>No posts to display.</p>
+      )}
     </main>
   );
 };
 
 export default Home;
+//posts.length not working

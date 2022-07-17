@@ -4,7 +4,12 @@ import Header from "./components/layout/Header";
 import Nav from "./components/layout/Nav";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
-import Main from "./components/layout/Main";
+import PostPage from "./components/pages/PostPage";
+import { Route, Routes } from "react-router-dom";
+import About from "./components/pages/About";
+import NotFound from "./components/pages/NotFound";
+import NewPost from "./components/pages/NewPost";
+
 function App() {
   const [posts, setPosts] = useState([
     {
@@ -33,13 +38,30 @@ function App() {
     },
   ]);
   const [search, setSearch] = useState("");
-  const [searchResult, setSearchResults] = useState([]);
+  const [searchResults, setSearchResults] = useState([]);
+  let navigate = useNavigate();
+  const handleDelte = (id) => {
+    const postList = posts.filter((post) => post.id !== id);
+    setPosts(postList);
+    navigate("/");
+  };
   return (
     <div className="App">
       <h1>App page</h1>
       <Header title="web site" />
       <Nav search={search} setSearch={setSearch} />
-      <Home posts={posts} setPosts={setPosts} />
+      <Routes>
+        <Route posts={posts} path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/post" element={<NewPost />} />
+        <Route
+          posts={posts}
+          // handleDelte={handleDelte}
+          path="/post/:id"
+          element={<PostPage />}
+        />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
       <Footer />
     </div>
   );
