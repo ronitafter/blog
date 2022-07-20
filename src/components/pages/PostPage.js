@@ -5,9 +5,9 @@ import NewPost from "./NewPost";
 const PostPage = ({ posts, handleDelete }) => {
   const { id } = useParams();
 
-  const post = posts?.find((post) => post.id.toString() === id);
+  const post = posts.find((post) => post.id.toString() === id);
   return (
-    <main className="PostPage">
+    <main className="PostPage postpage">
       <NewPost />
       <article className="post">
         {post && (
