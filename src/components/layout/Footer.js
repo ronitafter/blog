@@ -5,7 +5,6 @@ const Footer = () => {
   return (
     <footer className="footer Footer">
       <p>CopyRight &copy; {today.getFullYear()}</p>
-      <h1>Footer</h1>
     </footer>
   );
 };

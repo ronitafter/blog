@@ -1,6 +1,5 @@
 import React from "react";
 import { Link, useParams } from "react-router-dom";
-import NewPost from "./NewPost";
 
 const PostPage = ({ posts, handleDelete }) => {
   const { id } = useParams();
@@ -8,7 +7,6 @@ const PostPage = ({ posts, handleDelete }) => {
   const post = posts.find((post) => post.id.toString() === id);
   return (
     <main className="PostPage postpage">
-      <NewPost />
       <article className="post">
         {post && (
           <>
